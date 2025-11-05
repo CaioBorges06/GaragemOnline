@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CriarCarroController;
 
 
 Route::get('/', function () {
@@ -63,6 +64,14 @@ Route::get('/admin/dashboard', function () {
 
 
 /* ------------------------------------------------------------------------------------------------  */
+
+/* -----------------------------------  ROTAS LOGIN  ---------------------------------------------  */
+
+Route::get('/admin/carro/adicionar', [CriarCarroController::class, 'create'])
+    ->name('form.carro');
+
+Route::post('/admin/carro/validar/', [CriarCarroController::class, 'create'])
+    ->name('validar.carro');
 
 
 require __DIR__.'/auth.php';
