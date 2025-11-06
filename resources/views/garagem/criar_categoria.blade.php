@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LOGIN | ADMIN</title>
+    <title>ADM | Criar categoria</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Adicionar Carro</h2>
+                        <h2>Adicionar Categoria</h2>
                         <span style="color: #de4646ff;">Área restrita para administradores</span>
                         </div>
                     </div>
@@ -72,90 +72,29 @@
     </div>
     <!-- Breadcrumb Begin -->
 
-<h2 style="
-    text-align: center;
-    background-color: #db2d2e;
-    color: white;
-    padding: 20px 0;
-    margin: 60px auto;
-    width: 60%;
-    border-radius: 5px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-">
-     <strong>Todos os campos são obrigatórios</strong> 
-</h2>
-
     <!-- Contact Section Begin -->
     <section >
-        <div class="container" style="margin-bottom: 80px;">
+        <div class="container" style="margin-bottom: 80px; margin-top:40px;">
                     <div class="contact__form" >
-                        <form method="POST" action="#" >
+                        <form method="POST" action="{{ route('validar.categoria') }}" >
 
                             @csrf
 
                             <div style="display: flex; flex-direction: column; align-items: center;" >
- 
                                 <div class="col-lg-6">
-                            <label for="categoria"><strong>Categoria:</strong></label><br>
-                            <select name="categoria_id" id="categoria" style="width:100%; padding:8px; border-radius:5px;">
-                                <option value="">Selecione a categoria</option>
-                                @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                                    <div style="text-align:center;font-size:20px; margin-bottom: 20px;"><label for="modelo"><strong>Nome da Categoria:</strong></label></div>
+                                    
+                                    <input type="text" name="categoria" placeholder="insira o nome da categoria">
+                                </div>
+
+                            @if ($errors->any())
+                                
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $error }}
+                                    </div>
                                 @endforeach
-                            </select>
-                            </div><br>
-
-                                <div class="col-lg-6">
-                                    <label for="modelo"><strong>Modelo:</strong></label>
-                                    <input type="text" name="modelo" placeholder="insira o modelo">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="marca"><strong>Marca:</strong></label>
-                                    <input type="text" name="marca" placeholder="insira a marca">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="cor"><strong>Cor:</strong></label>
-                                    <input type="text" name="cor" placeholder="insira a cor">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="ano"><strong>Ano:</strong></label>
-                                    <input type="number" name="ano" placeholder="insira o ano">
-                                </div>
-                            
-                            <div class="col-lg-6">
-                                    <label for="km"><strong>Quilometragem:</strong></label>
-                                    <input type="text" name="km" placeholder="insira a quantidade de km">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="valor"><strong>Valor (R$):</strong></label>
-                                    <input type="number" name="valor" id="valor" placeholder="Ex: 75000.00" min="0" step="0.01">
-                                </div>
-
-                            <div class="col-lg-8 mb-3">
-                            <label for="detalhes" class="form-label"><strong>Detalhes:</strong></label>
-                            <textarea class="form-control" name="detalhes" rows="5" placeholder="Insira os detalhes do carro..."></textarea>
-                            </div>
-
-                            <div>
-                                <label for="foto1"><strong>Link da Foto 1:</strong></label>
-                                <input type="text" name="foto1" id="fotoUm" placeholder="Cole o link da imagem 1">
-                            </div>
-
-                            <div>
-                                <label for="foto2"><strong>Link da Foto 2:</strong></label>
-                                <input type="text" name="foto2" id="fotoDois" placeholder="Cole o link da imagem 2">
-                            </div>
-
-                            <div>
-                                <label for="foto3"><strong>Link da Foto 3:</strong></label>
-                                <input type="text" name="foto3" id="fotoTres" placeholder="Cole o link da imagem 3">
-                            </div>
+                            @endif
 
                             <div style="text-align: center;" class="col-lg-12">
                                 <button type="submit" class="site-btn">Adicionar</button>

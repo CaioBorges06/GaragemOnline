@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Categorias;
+use App\Models\Carros;
 
 class CriarCarroController extends Controller
 {
@@ -12,7 +14,8 @@ class CriarCarroController extends Controller
 
 if (Auth::check()) {
 
-        return view('garagem.add_carro');
+         $categorias = Categorias::all(); // pega todas as categorias
+        return view('garagem.add_carro',compact('categorias'));
 
     }
 

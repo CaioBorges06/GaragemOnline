@@ -1,6 +1,48 @@
 @extends('garagem.template_inicio')
 
 @section('com_sessao')
+
+
+@if (session('success'))
+<div 
+    style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1050;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s, transform 0.5s;
+    "
+    id="successToast"
+>
+    {{ session('success') }}
+</div>
+
+<script>
+    var toastEl = document.getElementById('successToast');
+    if (toastEl) {
+        // aparecer suavemente
+        setTimeout(() => {
+            toastEl.style.opacity = 1;
+            toastEl.style.transform = "translateY(0)";
+        }, 100);
+
+        // desaparecer após 5 segundos
+        setTimeout(() => {
+            toastEl.style.opacity = 0;
+            toastEl.style.transform = "translateY(-20px)";
+        }, 5000);
+    }
+</script>
+@endif
+
+
  <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -38,7 +80,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="{{route('carros')}}">Carros</a></li>
-                                <li><a href="./contact.html">Adicionar categoria</a></li>
+                                <li><a href="{{route('form.categoria')}}">Adicionar categoria</a></li>
                             </ul>
                         </nav>
                     <div class="header__nav__widget">

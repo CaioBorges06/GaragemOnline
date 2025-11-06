@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CriarCarroController;
+use App\Http\Controllers\ControllerCategoria;
 
 
 Route::get('/', function () {
@@ -65,13 +66,24 @@ Route::get('/admin/dashboard', function () {
 
 /* ------------------------------------------------------------------------------------------------  */
 
-/* -----------------------------------  ROTAS LOGIN  ---------------------------------------------  */
+/* -----------------------------------  ROTAS ADICIONAR CATEGORIA  --------------------------------  */
 
 Route::get('/admin/carro/adicionar', [CriarCarroController::class, 'create'])
     ->name('form.carro');
 
 Route::post('/admin/carro/validar/', [CriarCarroController::class, 'create'])
     ->name('validar.carro');
+
+/* ------------------------------------------------------------------------------------------------  */
+
+/* -----------------------------------  ROTAS ADICIONAR CARRO  ------------------------------------  */
+
+Route::get('/admin/categoria/criar',[ControllerCategoria::class,'create'])
+->name('form.categoria');
+
+Route::post('/admin/categoria/validar',[ControllerCategoria::class,'store'])
+->name('validar.categoria');
+
 
 
 require __DIR__.'/auth.php';
