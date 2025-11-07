@@ -13,15 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -143,35 +143,33 @@
                 <div class="col-lg-9">
 
                     <div class="row">
+                        @foreach($carros as $carro)
                     <!-- Início -->
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-1.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-6.jpg" alt="">
-                                    <img src="img/cars/car-3.jpg" alt="">
+                                    <img src="{{ $carro->fotoUm }}" alt="">
+                                    <img src="{{ $carro->fotoDois }}" alt="">
+                                    <img src="{{ $carro->fotoTres }}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
-                                        <h5><a href="#">Porsche cayenne turbo s</a></h5>
+                                        <div class="label-date">{{ $carro->ano }}</div>
+                                        <h5><a href="#">{{ $carro->modelo }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$218<span>/Month</span></h6>
+                                        <a class="car-option" href="{{ route('carros.detalhes', $carro->id) }}" >Detalhes</a>
+                                        <h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span> km</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     <!-- Fim -->
+                     @endforeach
                     </div>
-
                 </div>
             </div>
         </div>
@@ -236,15 +234,15 @@
     <!-- Search End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.nice-select.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/mixitup.min.js"></script>
+    <script src="/js/jquery.slicknav.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

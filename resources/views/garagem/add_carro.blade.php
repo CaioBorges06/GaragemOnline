@@ -91,7 +91,7 @@
     <section >
         <div class="container" style="margin-bottom: 80px;">
                     <div class="contact__form" >
-                        <form method="POST" action="#" >
+                        <form method="POST" action="{{route('validar.carro')}}" >
 
                             @csrf
 
@@ -99,7 +99,7 @@
  
                                 <div class="col-lg-6">
                             <label for="categoria"><strong>Categoria:</strong></label><br>
-                            <select name="categoria_id" id="categoria" style="width:100%; padding:8px; border-radius:5px;">
+                            <select name="categoria" style="width:100%; padding:8px; border-radius:5px;">
                                 <option value="">Selecione a categoria</option>
                                 @foreach($categorias as $categoria)
                                     <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
@@ -143,18 +143,18 @@
                             </div>
 
                             <div>
-                                <label for="foto1"><strong>Link da Foto 1:</strong></label>
-                                <input type="text" name="foto1" id="fotoUm" placeholder="Cole o link da imagem 1">
+                                <label for="fotoUm"><strong>Link da Foto 1:</strong></label>
+                                <input type="text" name="fotoUm" placeholder="Cole o link da imagem 1">
                             </div>
 
                             <div>
                                 <label for="foto2"><strong>Link da Foto 2:</strong></label>
-                                <input type="text" name="foto2" id="fotoDois" placeholder="Cole o link da imagem 2">
+                                <input type="text" name="fotoDois" placeholder="Cole o link da imagem 2">
                             </div>
 
                             <div>
                                 <label for="foto3"><strong>Link da Foto 3:</strong></label>
-                                <input type="text" name="foto3" id="fotoTres" placeholder="Cole o link da imagem 3">
+                                <input type="text" name="fotoTres" placeholder="Cole o link da imagem 3">
                             </div>
 
                             <div style="text-align: center;" class="col-lg-12">

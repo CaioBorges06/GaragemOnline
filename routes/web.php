@@ -6,6 +6,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CriarCarroController;
 use App\Http\Controllers\ControllerCategoria;
+use App\Http\Controllers\MostrarEditarCarro;
 
 
 Route::get('/', function () {
@@ -36,11 +37,9 @@ Route::get('/inicio',
 
 /* -----------------------------------  ROTAS CARROS  ---------------------------------------------  */
 
-Route::get('/carros', function(){
+Route::get('/carros', [MostrarEditarCarro::class,'mostrar'])->name('carros'); // rota para a pagina de carros
 
-    return view('garagem.carros');
-
-})->name('carros'); // rota para a pagina de carros
+Route::get('/carros/detalhes/{id}', [MostrarEditarCarro::class,'mostrar'])->name('carros.detalhes'); // rota para editar carro
 
 /* ------------------------------------------------------------------------------------------------  */
 
@@ -66,17 +65,17 @@ Route::get('/admin/dashboard', function () {
 
 /* ------------------------------------------------------------------------------------------------  */
 
-/* -----------------------------------  ROTAS ADICIONAR CATEGORIA  --------------------------------  */
+/* -----------------------------------  ROTAS ADICIONAR CARRO  --------------------------------  */
 
 Route::get('/admin/carro/adicionar', [CriarCarroController::class, 'create'])
     ->name('form.carro');
 
-Route::post('/admin/carro/validar/', [CriarCarroController::class, 'create'])
+Route::post('/admin/carro/validar/', [CriarCarroController::class, 'store'])
     ->name('validar.carro');
 
 /* ------------------------------------------------------------------------------------------------  */
 
-/* -----------------------------------  ROTAS ADICIONAR CARRO  ------------------------------------  */
+/* -----------------------------------  ROTAS ADICIONAR CATEGORIA  ------------------------------------  */
 
 Route::get('/admin/categoria/criar',[ControllerCategoria::class,'create'])
 ->name('form.categoria');
