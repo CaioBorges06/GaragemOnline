@@ -155,14 +155,13 @@
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">{{ $carro->ano }}</div>
-                                        <h5><a href="#">{{ $carro->categoria }}</a></h5>
+                                        <h5><a href="#">{{ $carro->modelo }}</a></h5>
                                         <ul>
                                             <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
                                         <a class="car-option" href="{{ route('carros.detalhes', $carro->id) }}" >Detalhes</a>
-                                        <h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span> km</span></h6>
                                     </div>
                                 </div>
                             </div>

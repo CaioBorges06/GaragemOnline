@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Adicionar Carro</h2>
+                        <h2>Detalhes do Carro</h2>
                         <span style="color: #de4646ff;">Área restrita para administradores</span>
                         </div>
                     </div>
@@ -88,15 +88,43 @@
         </div>
             <div class="car__item__text">
                 <div class="car__item__text__inner">
-                    <div class="label-date">2010</div>
-                    <h5><a href="#">suv hics</a></h5>
+                    <div class="label-date">{{ $carro->ano }}</div>
+                    <h5><span style="color: #f44336;">modelo: </span> {{$carro->modelo}} </h5>
+                    <h5><span style="color: #f44336;">marca: </span> {{$carro->marca}} </h5>
+                    <h5><span style="color: #f44336;">cor: </span> {{$carro->cor}} </h5>
                     <ul>
-                        <li><span>R$ 640.000,00</span></li>
+                        <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
                     </ul>
+                    
+                    <h5 style="display: block; width: 100%;">
+    <span style="color: #f44336;">Descrição:</span>
+</h5>
+
+<div style="
+    display: block;
+    width: 95%;
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    border-left: 4px solid #db2d2e;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 400;
+    text-align: justify;
+    margin-top: 8px;
+    word-wrap: break-word;
+    white-space: pre-line;
+    box-sizing: border-box;
+">
+    {!! nl2br(e($carro->detalhes)) !!}
+</div>
+
+    <h5><span style="color: #f44336"> Quilometragem: </span><h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span style="color: #f44336"> km</span></h6></h5>
+
+
                 </div>
                 <div class="car__item__price">
-                    <a class="car-option" href="http://127.0.0.1:8000/carros/detalhes/1">Editar</a>
-                    <h6>400.000<span> km</span></h6>
+                    <a class="car-option" href="#">Editar</a>
+                    
                 </div>
             </div>
         </div>

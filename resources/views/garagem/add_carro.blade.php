@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LOGIN | ADMIN</title>
+    <title>ADMIN | Adicionar Carro</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -99,7 +99,7 @@
  
                                 <div class="col-lg-6">
                             <label for="categoria"><strong>Categoria:</strong></label><br>
-                            <select name="categoria_id" id="categoria" style="width:100%; padding:8px; border-radius:5px;">
+                            <select name="categoria" style="width:100%; padding:8px; border-radius:5px;">
                                 <option value="">Selecione a categoria</option>
                                 @foreach($categorias as $categoria)
                                     <option value="{{ $categoria->categoria }}">{{ $categoria->categoria }}</option>
@@ -143,18 +143,18 @@
                             </div>
 
                             <div>
-                                <label for="foto1"><strong>Link da Foto 1:</strong></label>
-                                <input type="text" name="foto1" id="fotoUm" placeholder="Cole o link da imagem 1">
+                                <label for="fotoUmm"><strong>Link da Foto 1:</strong></label>
+                                <input type="text" name="fotoUm" id="fotoUm" placeholder="Cole o link da imagem 1">
                             </div>
 
                             <div>
-                                <label for="foto2"><strong>Link da Foto 2:</strong></label>
-                                <input type="text" name="foto2" id="fotoDois" placeholder="Cole o link da imagem 2">
+                                <label for="fotoDois"><strong>Link da Foto 2:</strong></label>
+                                <input type="text" name="fotoDois" placeholder="Cole o link da imagem 2">
                             </div>
 
                             <div>
                                 <label for="foto3"><strong>Link da Foto 3:</strong></label>
-                                <input type="text" name="foto3" id="fotoTres" placeholder="Cole o link da imagem 3">
+                                <input type="text" name="fotoTres" placeholder="Cole o link da imagem 3">
                             </div>
 
                             <div style="text-align: center;" class="col-lg-12">
