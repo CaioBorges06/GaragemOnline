@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
     <!-- Breadcrumb Begin -->
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="col-lg-4 col-md-4">
@@ -122,9 +122,9 @@
 
 
                 </div>
-                <div class="car__item__price">
-                    <a class="car-option" href="#">Editar</a>
-                    
+                <div style="margin-top:20px; margin-bottom:20px;margin-left:20px;">
+                    <a class="site-btn" href="#" style="background-color:blue; margin-right:20px;"> Editar </a> 
+                    <a class="site-btn" href="#" > Excluir </a>
                 </div>
             </div>
         </div>

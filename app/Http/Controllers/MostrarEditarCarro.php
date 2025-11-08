@@ -11,30 +11,27 @@ class MostrarEditarCarro extends Controller
     
     public function mostrar(){
 
-    if (Auth::check()) {
-
         $carros = Carros::all(); // pega todos os carros
         return view('garagem.carros',compact('carros'));
 
     }
 
-        return redirect()->route('admin.login');
+        public function detalhes($id)
+    {
+        $carro = Carros::find($id);
 
-    }
-
-    public function detalhes($id){
-
-        $carro = Carros::find($id); // pega o carro pelo id
-
-        if (Auth::check()) {
-
-            return view('garagem.detalhes_admin',compact('carro'));
-
+        // Se o carro não for encontrado
+        if (!$carro) {
+            abort(404, 'Carro não encontrado');
         }
 
-            return view('garagem.detalhes_pub',compact('carro'));
+        if (Auth::check()) {
+            return view('garagem.detalhes_admin', compact('carro'));
+        }
 
+        return view('garagem.detalhes_pub', compact('carro'));
     }
+
 /*
     public function editar($id){
 
