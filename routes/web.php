@@ -39,7 +39,7 @@ Route::get('/inicio',
 
 Route::get('/carros', [MostrarEditarCarro::class,'mostrar'])->name('carros'); // rota para a pagina de carros
 
-Route::get('/carros/detalhes/{id}', [MostrarEditarCarro::class,'mostrar'])->name('carros.detalhes'); // rota para editar carro
+Route::get('/carros/detalhes/{id}', [MostrarEditarCarro::class,'detalhes'])->name('carros.detalhes'); // rota para editar carro
 
 /* ------------------------------------------------------------------------------------------------  */
 

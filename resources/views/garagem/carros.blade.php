@@ -155,7 +155,7 @@
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">{{ $carro->ano }}</div>
-                                        <h5><a href="#">{{ $carro->modelo }}</a></h5>
+                                        <h5><a href="#">{{ $carro->categoria }}</a></h5>
                                         <ul>
                                             <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
                                         </ul>
