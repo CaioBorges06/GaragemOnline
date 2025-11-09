@@ -9,10 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN | Detalhes Carro</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
@@ -24,31 +22,31 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-
-
 <body>
-    <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
-
+    <header class="header">
         <div class="container">
             <div class="row">
+                <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{route('inicio')}}"></img src="/img/logo.png" alt=""></a>
+                        <a href="{{route('inicio')}}"><img src="/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav" style="text-align:left;">
                         <nav class="header__menu">
                             <ul>
-                            <li><a href="{{route('inicio')}}"  style="font-size: 40px;">Início</a></li>
+                                <li><a href="{{route('inicio')}}" style="font-size: 40px;">Início</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
                             <div class="header__nav__widget__btn">
+                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="canvas__open">
@@ -56,9 +54,7 @@
             </div>
         </div>
     </header>
-    <!-- Header Section End -->
-
-@if (session('success'))
+    @if (session('success'))
 <div 
     style="
         position: fixed;
@@ -97,8 +93,6 @@
 </script>
 @endif
 
-    <!-- Breadcrumb End -->
-     
     <div class="breadcrumb-option set-bg" data-setbg="/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
@@ -113,78 +107,93 @@
         </div>
     </div><br><br><br>
 
-    <div class="container">
-        <a href="{{route('carros')}}" class="site-btn" style="; margin-right:90px;">Voltar para a lista de carros</a>
-    </div>
-
-    <!-- Breadcrumb Begin -->
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="col-lg-4 col-md-4">
-        <div class="car__item">
-            <div class="car__item__pic__slider owl-carousel">
-            @if ($carro->fotoUm)
-                <img src="{{ $carro->fotoUm }}" alt="">
-            @endif
-            @if ($carro->fotoDois)
-                <img src="{{ $carro->fotoDois }}" alt="">
-            @endif
-            @if ($carro->fotoTres)
-                <img src="{{ $carro->fotoTres }}" alt="">
-            @endif
-        </div>
-            <div class="car__item__text">
-                <div class="car__item__text__inner">
-                    <div class="label-date">{{ $carro->ano }}</div>
-                    <h5><span style="color: #f44336;">categoria: </span> {{$carro->categoria}} </h5>
-                    <h5><span style="color: #f44336;">modelo: </span> {{$carro->modelo}} </h5>
-                    <h5><span style="color: #f44336;">marca: </span> {{$carro->marca}} </h5>
-                    <h5><span style="color: #f44336;">cor: </span> {{$carro->cor}} </h5>
-                    <ul>
-                        <li><span style="color: #f44336;">valor: </span><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
-                    </ul>
-                    
-                    <h5 style="display: block; width: 100%;">
-    <span style="color: #f44336;">Descrição:</span>
-</h5>
-
-<div style="
-    display: block;
-    width: 95%;
-    background-color: #f9f9f9;
-    padding: 12px 15px;
-    border-left: 4px solid #db2d2e;
-    line-height: 1.6;
-    color: #333;
-    font-weight: 400;
-    text-align: justify;
-    margin-top: 8px;
-    word-wrap: break-word;
-    white-space: pre-line;
-    box-sizing: border-box;
-">
-    {!! nl2br(e($carro->detalhes)) !!}
+ <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="{{route('carros')}}" class="site-btn" style="background-color: transparent; color: #f44336; border: 2px solid #f44336; padding: 10px 25px;">
+        <i class="fa fa-arrow-left"></i> Voltar para a lista de carros
+    </a>
 </div>
 
-    <h5><span style="color: #f44336"> Quilometragem: </span><h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span style="color: #f44336"> km</span></h6></h5>
-
-
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-lg-4 col-md-4">
+            <div class="car__item">
+                <div class="car__item__pic__slider owl-carousel">
+                @if ($carro->fotoUm)
+                    <img src="{{ $carro->fotoUm }}" alt="">
+                @endif
+                @if ($carro->fotoDois)
+                    <img src="{{ $carro->fotoDois }}" alt="">
+                @endif
+                @if ($carro->fotoTres)
+                    <img src="{{ $carro->fotoTres }}" alt="">
+                @endif
                 </div>
-                <div style="text-align:center;margin-top:20px; margin-bottom:20px;margin-left:20px;">
-                    <a class="site-btn" href="{{route('carros.editar', $carro->id)}}" style="background-color:blue; margin-right:90px;"> Editar </a> 
-                    <a class="site-btn" href="{{route('carros.deletar', $carro->id)}}" > Excluir </a>
+                
+                <div class="car__item__text">
+                    <div class="car__item__text__inner">
+                        <div class="label-date">{{ $carro->ano }}</div>
+
+                        <h4 style="margin-top: 10px; margin-bottom: 20px; color: #333;">
+                            {{ $carro->marca }} - {{ $carro->modelo }}
+                        </h4>
+                        
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="col-6">
+                                <p style="margin-bottom: 8px;">
+                                    <strong style="color: #f44336;">Categoria:</strong> {{ $carro->categoria }}
+                                </p>
+                                <p style="margin-bottom: 8px;">
+                                    <strong style="color: #f44336;">Modelo:</strong> {{ $carro->modelo }}
+                                </p>
+                                <p style="margin-bottom: 8px;">
+                                    <strong style="color: #f44336;">Marca:</strong> {{ $carro->marca }}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p style="margin-bottom: 8px;">
+                                    <strong style="color: #f44336;">Cor:</strong> {{ $carro->cor }}
+                                </p>
+                                <p style="margin-bottom: 8px;">
+                                    <strong style="color: #f44336;">Quilometragem:</strong> <span style="font-weight: 500;">{{ number_format((float) $carro->km, 0, '', '.') }}</span> <span style="color: #f44336">km</span>
+                                </p>
+                                <p style="margin-bottom: 8px; font-size: 1.1em;">
+                                    <strong style="color: #f44336;">Valor:</strong> <span style="font-weight: 700;">R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <h5 style="display: block; width: 100%; margin-top: 20px; margin-bottom: 8px;">
+                            <span style="color: #f44336;">Descrição:</span>
+                        </h5>
+
+                        <div style="
+                            display: block;
+                            width: 100%;
+                            background-color: #f9f9f9;
+                            padding: 15px;
+                            border-left: 4px solid #db2d2e;
+                            line-height: 1.6;
+                            color: #333;
+                            font-weight: 400;
+                            text-align: justify;
+                            margin-bottom: 25px;
+                            word-wrap: break-word;
+                            white-space: pre-line;
+                            box-sizing: border-box;
+                            border-radius: 4px;
+                        ">
+                            {!! nl2br(e($carro->detalhes)) !!}
+                        </div>
+                        
+                    </div>
+                    
+                    <div style="text-align:center;margin-top:20px; margin-bottom:20px;margin-left:20px;">
+                        <a class="site-btn" href="{{route('carros.editar', $carro->id)}}" style="background-color:blue; margin-right:90px;"> Editar </a> 
+                        <a class="site-btn" href="{{route('carros.deletar', $carro->id)}}" > Excluir </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
-    <!-- Contact Section Begin -->
-
-
-    <!-- Contact Section End -->
-
-    <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="/img/footer-bg.jpg">
         <div class="container">
             <div class="footer__contact">
@@ -197,15 +206,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-
                 </div>
-
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.nice-select.min.js"></script>

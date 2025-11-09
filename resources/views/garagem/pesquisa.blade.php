@@ -31,10 +31,12 @@
                                         </div>
                                     </div>
                                 </div><br><br><br><br>
+
                             </div>
                         <!-- Fim -->
                         @endforeach
                         </div>
+                        
     @endif
 
 @endsection

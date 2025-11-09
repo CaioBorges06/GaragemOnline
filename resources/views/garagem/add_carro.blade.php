@@ -30,6 +30,49 @@
         <div class="loader"></div>
     </div>
 
+        <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li></i>📍 Venda de carros em todo o estado de São Paulo </li>
+                            <li><i class="fa fa-envelope-o"></i> garagemonline_contato@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__phone">
+                                <i class="fa fa-phone"></i>
+                                <span>(+14) 991330681</span>
+                            </div>
+                            <div class="header__top__social">
+                                <a href="https://www.instagram.com/caio.borgeess/"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{{route('inicio')}}"><img src="/img/logo.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
 
         <div class="container">
             <div class="row">
@@ -79,7 +122,6 @@
     padding: 20px 0;
     margin: 60px auto;
     width: 60%;
-    border-radius: 5px;
     font-weight: 900;
     letter-spacing: 1px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -90,91 +132,101 @@
     <!-- Contact Section Begin -->
     <section >
         <div class="container" style="margin-bottom: 80px;">
-                    <div class="contact__form" >
-                        <form method="POST" action="{{ route('validar.carro') }}" >
+        
+        <div class="contact__form" style="max-width: 900px; margin: 0 auto; padding: 40px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
+            <form method="POST" action="{{ route('validar.carro') }}">
+                @csrf
 
-                            @csrf
-
-                            <div style="display: flex; flex-direction: column; align-items: center;" >
- 
-                                <div class="col-lg-6">
-                            <label for="categoria"><strong>Categoria:</strong></label><br>
-                            <select name="categoria" style="width:100%; padding:8px; border-radius:5px;">
-                                <option value="">Selecione a categoria</option>
-                                @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria->categoria }}">{{ $categoria->categoria }}</option>
-                                @endforeach
-                            </select>
-                            </div><br>
-
-                                <div class="col-lg-6">
-                                    <label for="modelo"><strong>Modelo:</strong></label>
-                                    <input type="text" name="modelo" placeholder="insira o modelo">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="marca"><strong>Marca:</strong></label>
-                                    <input type="text" name="marca" placeholder="insira a marca">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="cor"><strong>Cor:</strong></label>
-                                    <input type="text" name="cor" placeholder="insira a cor">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="ano"><strong>Ano:</strong></label>
-                                    <input type="number" name="ano" placeholder="insira o ano">
-                                </div>
-                            
-                            <div class="col-lg-6">
-                                    <label for="km"><strong>Quilometragem:</strong></label>
-                                    <input type="text" name="km" placeholder="insira a quantidade de km">
-                                </div>
-
-                            <div class="col-lg-6">
-                                    <label for="valor"><strong>Valor (R$):</strong></label>
-                                    <input type="number" name="valor" id="valor" placeholder="Ex: 75000.00" min="0" step="0.01">
-                                </div>
-
-                            <div class="col-lg-8 mb-3">
-                            <label for="detalhes" class="form-label"><strong>Detalhes:</strong></label>
-                            <textarea class="form-control" name="detalhes" rows="5" placeholder="Insira os detalhes do carro..."></textarea>
-                            </div>
-
-                            <div>
-                                <label for="fotoUmm"><strong>Link da Foto 1:</strong></label>
-                                <input type="text" name="fotoUm" id="fotoUm" placeholder="Cole o link da imagem 1">
-                            </div>
-
-                            <div>
-                                <label for="fotoDois"><strong>Link da Foto 2:</strong></label>
-                                <input type="text" name="fotoDois" placeholder="Cole o link da imagem 2">
-                            </div>
-
-                            <div>
-                                <label for="foto3"><strong>Link da Foto 3:</strong></label>
-                                <input type="text" name="fotoTres" placeholder="Cole o link da imagem 3">
-                            </div>
-
-                            <div style="text-align: center;" class="col-lg-12">
-                                <button type="submit" class="site-btn">Adicionar</button>
-                            </div>
-                            </div>
-
-                 @if ($errors->any())
-                                
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $error }}
-                                    </div>
-                                @endforeach
-                @endif
-
-                        </form>
-                
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <label for="categoria"><strong>Categoria:</strong></label><br>
+                        <select name="categoria" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                            <option value="">Selecione a categoria</option>
+                            @foreach($categorias as $categoria)
+                                <option value="{{ $categoria->categoria }}">{{ $categoria->categoria }}</option>
+                            @endforeach
+                        </select>
                     </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label for="modelo"><strong>Modelo:</strong></label>
+                        <input type="text" name="modelo" placeholder="Ex: Civic EXL" required>
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label for="marca"><strong>Marca:</strong></label>
+                        <input type="text" name="marca" placeholder="Ex: Honda" required>
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label for="cor"><strong>Cor:</strong></label>
+                        <input type="text" name="cor" placeholder="Ex: Prata, Vermelho" required>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <label for="ano"><strong>Ano:</strong></label>
+                        <input type="number" name="ano" placeholder="Ex: 2020" min="1900" max="2100" required>
+                    </div>
+                    
+                    <div class="col-lg-4 mb-3">
+                        <label for="km"><strong>Quilometragem (km):</strong></label>
+                        <input type="number" name="km" placeholder="Ex: 45000" min="0" required>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <label for="valor"><strong>Valor (R$):</strong></label>
+                        <input type="number" name="valor" id="valor" placeholder="Ex: 118900.00" min="0" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 mb-4">
+                        <label for="detalhes" class="form-label"><strong>Detalhes e Opcionais:</strong></label>
+                        <textarea class="form-control" name="detalhes" rows="5" placeholder="Câmbio CVT, 2.0 Flex, bancos em couro, multimídia, etc. (Máx. 255 caracteres)" required></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5 style="margin-top: 20px; margin-bottom: 15px; color: #db2d2e;">🔗 Links das Fotos</h5>
+                    </div>
+                    
+                    <div class="col-lg-12 mb-3">
+                        <label for="fotoUm"><strong>Foto 1 (Principal/Obrigatória):</strong></label>
+                        <input type="url" name="fotoUm" id="fotoUm" placeholder="Cole o link DIRETO da imagem 1 (Ex: .jpg, .png)" required>
+                    </div>
+
+                    <div class="col-lg-12 mb-3">
+                        <label for="fotoDois"><strong>Foto 2:</strong></label>
+                        <input type="url" name="fotoDois" placeholder="Cole o link da imagem 2" required>
+                    </div>
+
+                    <div class="col-lg-12 mb-4">
+                        <label for="fotoTres"><strong>Foto 3:</strong></label>
+                        <input type="url" name="fotoTres" placeholder="Cole o link da imagem 3" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">ADICIONAR CARRO</button>
+                    </div>
+                </div>
+
+                @if ($errors->any())
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $error }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </form>
         </div>
+    </div>
     </section>
     <!-- Contact Section End -->
 

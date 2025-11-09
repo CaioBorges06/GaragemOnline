@@ -79,7 +79,7 @@
                     <div class="header__nav">
                         <nav class="header__menu">
                             <ul>
-                                <li><a href="{{route('carros')}}">Carros</a></li>
+                                <li><a href="{{route('carros')}}">Ver Carros</a></li>
                                 <li><a href="{{route('form.categoria')}}">Adicionar categoria</a></li>
                             </ul>
                         </nav>

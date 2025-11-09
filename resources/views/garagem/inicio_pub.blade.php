@@ -37,7 +37,7 @@
                     <div class="header__nav">
                         <nav class="header__menu">
                             <ul>
-                                <li><a href="{{route('carros')}}">Carros</a></li>
+                                <li><a href="{{route('carros')}}">Ver Carros</a></li>
                             </ul>
                         </nav>
                     <div class="header__nav__widget">
@@ -58,7 +58,7 @@
                                 "
                                 onmouseover="this.style.backgroundColor='#e8dfdfff';" 
                                 onmouseout="this.style.backgroundColor='white';">
-                                ADM
+                                ADMIN
                             </a>
 
                     </div>
