@@ -43,6 +43,12 @@ Route::get('/carros/detalhes/{id}', [MostrarEditarCarro::class,'detalhes'])->nam
 
 Route::post('/carros/pesquisar', [MostrarEditarCarro::class,'pesquisar'])->name('carros.pesquisar'); // rota para pesquisar carro
 
+Route::get('/adm/carros/editar/{id}', [MostrarEditarCarro::class,'editar'])->name('carros.editar'); // rota para pesquisar carro via get
+
+Route::post('/adm/carros/atualizar/{id}', [MostrarEditarCarro::class,'atualizar'])->name('atualizar.carro'); // rota para atualizar carro via post
+
+Route::get('/adm/carros/deletar/{id}', [MostrarEditarCarro::class,'deletar'])->name('carros.deletar'); // rota para deletar carro via get
+
 /* ------------------------------------------------------------------------------------------------  */
 
 /* -----------------------------------  ROTAS LOGIN  ---------------------------------------------  */

@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMIN | Adicionar Carro</title>
+    <title>ADMIN | Atualizar Carro</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Adicionar Carro</h2>
+                        <h2>Atualizar Carro</h2>
                         <span style="color: #de4646ff;">Área restrita para administradores</span>
                         </div>
                     </div>
@@ -71,6 +71,7 @@
         </div>
     </div>
     <!-- Breadcrumb Begin -->
+
 
 <h2 style="
     text-align: center;
@@ -91,7 +92,7 @@
     <section >
         <div class="container" style="margin-bottom: 80px;">
                     <div class="contact__form" >
-                        <form method="POST" action="{{ route('validar.carro') }}" >
+                        <form method="POST" action="{{ route('atualizar.carro', $carro->id ) }}" >
 
                             @csrf
 
@@ -100,7 +101,7 @@
                                 <div class="col-lg-6">
                             <label for="categoria"><strong>Categoria:</strong></label><br>
                             <select name="categoria" style="width:100%; padding:8px; border-radius:5px;">
-                                <option value="">Selecione a categoria</option>
+                                <option value="{{ $carro->categoria }}" selected>{{ $carro->categoria }}</option>
                                 @foreach($categorias as $categoria)
                                     <option value="{{ $categoria->categoria }}">{{ $categoria->categoria }}</option>
                                 @endforeach
@@ -109,56 +110,57 @@
 
                                 <div class="col-lg-6">
                                     <label for="modelo"><strong>Modelo:</strong></label>
-                                    <input type="text" name="modelo" placeholder="insira o modelo">
+                                    <input type="text" name="modelo" placeholder="insira o modelo" value="{{ $carro->modelo }}">
                                 </div>
 
                             <div class="col-lg-6">
                                     <label for="marca"><strong>Marca:</strong></label>
-                                    <input type="text" name="marca" placeholder="insira a marca">
+                                    <input type="text" name="marca" placeholder="insira a marca" value="{{ $carro->marca }}">
                                 </div>
 
                             <div class="col-lg-6">
                                     <label for="cor"><strong>Cor:</strong></label>
-                                    <input type="text" name="cor" placeholder="insira a cor">
+                                    <input type="text" name="cor" placeholder="insira a cor" value="{{ $carro->cor }}">
                                 </div>
 
                             <div class="col-lg-6">
                                     <label for="ano"><strong>Ano:</strong></label>
-                                    <input type="number" name="ano" placeholder="insira o ano">
+                                    <input type="number" name="ano" placeholder="insira o ano" value="{{ $carro->ano }}">
                                 </div>
                             
                             <div class="col-lg-6">
                                     <label for="km"><strong>Quilometragem:</strong></label>
-                                    <input type="text" name="km" placeholder="insira a quantidade de km">
+                                    <input type="text" name="km" placeholder="insira a quantidade de km" value="{{ $carro->km }}">
                                 </div>
 
                             <div class="col-lg-6">
                                     <label for="valor"><strong>Valor (R$):</strong></label>
-                                    <input type="number" name="valor" id="valor" placeholder="Ex: 75000.00" min="0" step="0.01">
+                                    <input type="number" name="valor" id="valor" placeholder="Ex: 75000.00" min="0" step="0.01" value="{{ $carro->valor }}">
                                 </div>
 
                             <div class="col-lg-8 mb-3">
                             <label for="detalhes" class="form-label"><strong>Detalhes:</strong></label>
-                            <textarea class="form-control" name="detalhes" rows="5" placeholder="Insira os detalhes do carro..."></textarea>
+                            <textarea class="form-control" name="detalhes" rows="5" placeholder="Insira os detalhes do carro...">{{ $carro->detalhes }}</textarea>
                             </div>
 
                             <div>
                                 <label for="fotoUmm"><strong>Link da Foto 1:</strong></label>
-                                <input type="text" name="fotoUm" id="fotoUm" placeholder="Cole o link da imagem 1">
+                                <input type="text" name="fotoUm" id="fotoUm" placeholder="Cole o link da imagem 1" value="{{ $carro->fotoUm }}">
                             </div>
 
                             <div>
                                 <label for="fotoDois"><strong>Link da Foto 2:</strong></label>
-                                <input type="text" name="fotoDois" placeholder="Cole o link da imagem 2">
+                                <input type="text" name="fotoDois" placeholder="Cole o link da imagem 2" value="{{ $carro->fotoDois }}">
                             </div>
 
                             <div>
                                 <label for="foto3"><strong>Link da Foto 3:</strong></label>
-                                <input type="text" name="fotoTres" placeholder="Cole o link da imagem 3">
+                                <input type="text" name="fotoTres" placeholder="Cole o link da imagem 3" value="{{ $carro->fotoTres }}">
                             </div>
 
                             <div style="text-align: center;" class="col-lg-12">
-                                <button type="submit" class="site-btn">Adicionar</button>
+                                <a type="submit" href="{{route('carros.detalhes', $carro->id)}}" class="site-btn" style="margin-right: 40px;color:white;">cancelar</a>
+                                <button type="submit" class="site-btn" style="background-color:blue !important;">Atualizar</button>
                             </div>
                             </div>
 

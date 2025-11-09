@@ -1,3 +1,42 @@
+@if (session('success'))
+<div 
+    style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1050;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s, transform 0.5s;
+    "
+    id="successToast"
+>
+    {{ session('success') }}
+</div>
+
+<script>
+    var toastEl = document.getElementById('successToast');
+    if (toastEl) {
+        // aparecer suavemente
+        setTimeout(() => {
+            toastEl.style.opacity = 1;
+            toastEl.style.transform = "translateY(0)";
+        }, 100);
+
+        // desaparecer após 5 segundos
+        setTimeout(() => {
+            toastEl.style.opacity = 0;
+            toastEl.style.transform = "translateY(-20px)";
+        }, 5000);
+    }
+</script>
+@endif
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -38,7 +77,7 @@
             <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
         </div>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+            <a href="{{route('inicio')}}"><img src="/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <ul class="offcanvas__widget__add">
@@ -83,7 +122,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{route('inicio')}}"><img src="img/logo.jpg" alt=""></a>
+                        <a href="{{route('inicio')}}"><img src="/img/logo.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -107,7 +146,7 @@
     <!-- Header Section End -->
 
     <!-- Breadcrumb End -->
-    <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <div class="breadcrumb-option set-bg" data-setbg="/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -136,7 +175,7 @@
 
                             @csrf
 
-                                <input type="text" placeholder=".  .  .">
+                                <input type="text" name="termo" placeholder=".  .  .">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -154,7 +193,7 @@
     <!-- Car Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+    <footer class="footer set-bg" data-setbg="/img/footer-bg.jpg">
         <div class="container">
             <div class="footer__contact">
                 <div class="row">
@@ -175,7 +214,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.jpg" alt=""></a>
+                            <a href="#"><img src="/img/footer-logo.jpg" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -203,8 +242,11 @@
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="pequisa" placeholder="Search here.....">
+            <form class="search-model-form" method="POST" action="{{route('carros.pesquisar')}}">
+
+            @csrf
+
+                <input type="text" name="termo" placeholder="Pesquise aqui.....">
             </form>
         </div>
     </div>

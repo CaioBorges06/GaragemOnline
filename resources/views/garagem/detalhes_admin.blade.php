@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
+
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -56,6 +58,45 @@
     </header>
     <!-- Header Section End -->
 
+@if (session('success'))
+<div 
+    style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1050;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s, transform 0.5s;
+    "
+    id="successToast"
+>
+    {{ session('success') }}
+</div>
+
+<script>
+    var toastEl = document.getElementById('successToast');
+    if (toastEl) {
+        // aparecer suavemente
+        setTimeout(() => {
+            toastEl.style.opacity = 1;
+            toastEl.style.transform = "translateY(0)";
+        }, 100);
+
+        // desaparecer após 5 segundos
+        setTimeout(() => {
+            toastEl.style.opacity = 0;
+            toastEl.style.transform = "translateY(-20px)";
+        }, 5000);
+    }
+</script>
+@endif
+
     <!-- Breadcrumb End -->
      
     <div class="breadcrumb-option set-bg" data-setbg="/img/breadcrumb-bg.jpg">
@@ -71,6 +112,11 @@
             </div>
         </div>
     </div><br><br><br>
+
+    <div class="container">
+        <a href="{{route('carros')}}" class="site-btn" style="; margin-right:90px;">Voltar para a lista de carros</a>
+    </div>
+
     <!-- Breadcrumb Begin -->
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="col-lg-4 col-md-4">
@@ -122,9 +168,9 @@
 
 
                 </div>
-                <div style="margin-top:20px; margin-bottom:20px;margin-left:20px;">
-                    <a class="site-btn" href="#" style="background-color:blue; margin-right:20px;"> Editar </a> 
-                    <a class="site-btn" href="#" > Excluir </a>
+                <div style="text-align:center;margin-top:20px; margin-bottom:20px;margin-left:20px;">
+                    <a class="site-btn" href="{{route('carros.editar', $carro->id)}}" style="background-color:blue; margin-right:90px;"> Editar </a> 
+                    <a class="site-btn" href="{{route('carros.deletar', $carro->id)}}" > Excluir </a>
                 </div>
             </div>
         </div>

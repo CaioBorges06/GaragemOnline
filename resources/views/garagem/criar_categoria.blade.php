@@ -101,14 +101,6 @@
                             </div>
                             </div>
 
-                @if ($errors->any())
-
-                    <div style="color: red; text-align:center; margin-top: 15px;">
-                        {{ $errors->first() }}
-                    </div>
-
-                @endif
-
                         </form>
                 
                     </div>
