@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Carros;
 use App\Models\Categorias;
+use App\Models\Cor;
+use App\Models\Marca;
+use App\Models\Modelo;
 
 class MostrarEditarCarro extends Controller
 {
@@ -72,7 +75,10 @@ class MostrarEditarCarro extends Controller
 
             $categorias = Categorias::all(); // pega todas as categorias
             $carro = Carros::find($id); // pega o carro pelo id
-            return view('garagem.editar_carro',compact('carro','categorias'));
+            $cor = Cor::all(); // pega todas as cores
+            $marca = Marca::all(); // pega todas as marcas
+            $modelo = Modelo::all(); // pega todos os modelos
+            return view('garagem.editar_carro',compact('carro','categorias','cor','marca','modelo'));
 
         }
 

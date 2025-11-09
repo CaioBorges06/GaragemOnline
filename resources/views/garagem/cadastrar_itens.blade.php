@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADM | Criar categoria</title>
+    <title>ADM | Cadastrar Itens</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Adicionar Categoria</h2>
+                        <h2>Cadastrar Itens</h2>
                         <span style="color: #de4646ff;">Área restrita para administradores</span>
                         </div>
                     </div>
@@ -72,40 +72,109 @@
     </div>
     <!-- Breadcrumb Begin -->
 
-    <!-- Contact Section Begin -->
-    <section >
-        <div class="container" style="margin-bottom: 80px; margin-top:40px;">
-                    <div class="contact__form" >
-                        <form method="POST" action="{{ route('validar.categoria') }}" >
-
-                            @csrf
-
-                            <div style="display: flex; flex-direction: column; align-items: center;" >
-                                <div class="col-lg-6">
-                                    <div style="text-align:center;font-size:20px; margin-bottom: 20px;"><label for="modelo"><strong>Nome da Categoria:</strong></label></div>
-                                    
-                                    <input type="text" name="categoria" placeholder="insira o nome da categoria">
-                                </div>
-
-                            @if ($errors->any())
+                                @if ($errors->any())
                                 
                                 @foreach ($errors->all() as $error)
+                                    <br><br>
                                     <div class="alert alert-danger" role="alert">
                                         {{ $error }}
                                     </div>
+                                    <br><br>
                                 @endforeach
                             @endif
 
-                            <div style="text-align: center;" class="col-lg-12">
-                                <button type="submit" class="site-btn">Adicionar</button>
-                            </div>
-                            </div>
-
-                        </form>
-                
+    <!-- Contact Section Begin -->
+    <section>
+    <div class="container" style="margin-bottom: 80px; margin-top:40px;">
+        
+        <div class="contact__form">
+            <h2 class="text-center mb-4">Cadastro de Categoria</h2>
+            <form method="POST" action="{{ route('validar.categoria') }}">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="form-group text-center mb-4">
+                            <label for="categoria"><strong>Nome da Categoria:</strong></label>
+                            <input type="text" name="categoria" class="form-control" placeholder="Insira o nome da categoria">
+                        </div>
                     </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">Adicionar Categoria</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+
+    <hr class="my-5"> 
+
+    <div class="container" style="margin-bottom: 80px; margin-top:40px;">
+        
+        <div class="contact__form">
+            <h2 class="text-center mb-4">Cadastro de Modelo</h2>
+            <form method="POST" action="{{ route('validar.modelo') }}">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="form-group text-center mb-4">
+                            <label for="modelo"><strong>Nome do Modelo:</strong></label>
+                            <input type="text" name="modelo" class="form-control" placeholder="Insira o nome do modelo">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">Adicionar Modelo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container" style="margin-bottom: 80px; margin-top:40px;">
+        
+        <div class="contact__form">
+            <h2 class="text-center mb-4">Cadastro de Cor</h2>
+            <form method="POST" action="{{ route('validar.cor') }}">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="form-group text-center mb-4">
+                            <label for="cor"><strong>Nome da Cor:</strong></label>
+                            <input type="text" name="cor" class="form-control" placeholder="Insira o nome da cor">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">Adicionar Cor</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container" style="margin-bottom: 80px; margin-top:40px;">
+        
+        <div class="contact__form">
+            <h2 class="text-center mb-4">Cadastro de Marca</h2>
+            <form method="POST" action="{{ route('validar.marca') }}">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="form-group text-center mb-4">
+                            <label for="marca"><strong>Nome da Marca:</strong></label>
+                            <input type="text" name="marca" class="form-control" placeholder="Insira o nome da marca">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">Adicionar Marca</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
     <!-- Contact Section End -->
 
     <!-- Footer Section Begin -->

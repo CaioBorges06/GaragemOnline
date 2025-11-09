@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categorias;
 use App\Models\Carros;
+use App\Models\Cor;
+use App\Models\Marca;
+use App\Models\Modelo;
 
 class CriarCarroController extends Controller
 {
@@ -15,7 +18,10 @@ class CriarCarroController extends Controller
 if (Auth::check()) {
 
         $categorias = Categorias::all(); // pega todas as categorias
-        return view('garagem.add_carro',compact('categorias'));
+        $cor = Cor::all(); // pega todas as cores
+        $marca = Marca::all(); // pega todas as marcas
+        $modelo = Modelo::all(); // pega todos os modelos
+        return view('garagem.add_carro',compact('categorias','cor','marca','modelo'));
 
     }
 

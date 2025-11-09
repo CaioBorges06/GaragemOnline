@@ -55,8 +55,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{route('inicio')}}"><img src="/img/logo.png" alt="Logo"></a>
-                    </div>
+                        <a href="{{route('inicio')}}"><img src="/img/logo.JPG" alt="Logo"></a>
+                    </div><br><br><br>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav">
@@ -126,18 +126,33 @@
                                 </div>
 
                                 <div class="col-lg-6 mb-3">
-                                    <label for="modelo"><strong>Modelo:</strong></label>
-                                    <input type="text" name="modelo" placeholder="Ex: Civic EXL" value="{{ $carro->modelo }}" required>
+                                    <label for="modelo"><strong>Modelo:</strong></label><br>
+                                    <select name="modelo" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                                        <option value="{{ $carro->modelo }}">{{ $carro->modelo }}</option>
+                                        @foreach($modelo as $modelo)
+                                            <option value="{{ $modelo->modelo }}">{{ $modelo->modelo }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-6 mb-3">
-                                    <label for="marca"><strong>Marca:</strong></label>
-                                    <input type="text" name="marca" placeholder="Ex: Honda" value="{{ $carro->marca }}" required>
+                                    <label for="marca"><strong>Marca:</strong></label><br>
+                                    <select name="marca" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                                        <option value="{{ $carro->marca }}">{{ $carro->marca }}</option>
+                                        @foreach($marca as $marca)
+                                            <option value="{{ $marca->marca }}">{{ $marca->marca }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-6 mb-3">
-                                    <label for="cor"><strong>Cor:</strong></label>
-                                    <input type="text" name="cor" placeholder="Ex: Prata, Vermelho" value="{{ $carro->cor }}" required>
+                                    <label for="cor"><strong>Cor:</strong></label><br>
+                                    <select name="cor" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                                        <option value="{{ $carro->cor }}">{{ $carro->cor }}</option>
+                                        @foreach($cor as $cor)
+                                            <option value="{{ $cor->cor }}">{{ $cor->cor }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">

@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.jpg" alt=""></a>
+                        <a href="{{ route('inicio') }}"><img src="img/logo.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">

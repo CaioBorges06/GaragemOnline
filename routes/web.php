@@ -83,13 +83,24 @@ Route::post('/admin/carro/validar/', [CriarCarroController::class, 'store'])
 
 /* ------------------------------------------------------------------------------------------------  */
 
-/* -----------------------------------  ROTAS ADICIONAR CATEGORIA  ------------------------------------  */
+/* -----------------------------------  ROTAS ADICIONAR ITENS  ------------------------------------  */
 
-Route::get('/admin/categoria/criar',[ControllerCategoria::class,'create'])
-->name('form.categoria');
+Route::get('/admin/itens/cadastrar',[ControllerCategoria::class,'create'])
+->name('form.itens'); // rota para o formulario de criar categoria
 
-Route::post('/admin/categoria/validar',[ControllerCategoria::class,'store'])
-->name('validar.categoria');
+Route::post('/admin/categoria/validar',[ControllerCategoria::class,'validarCategoria'])
+->name('validar.categoria'); // rota para validar a criação da categoria
+
+Route::post('/admin/cor/validar',[ControllerCategoria::class,'validarCor'])
+->name('validar.cor'); // rota para o formulario de criar categoria
+
+Route::post('/admin/marca/validar',[ControllerCategoria::class,'validarMarca'])
+->name('validar.marca'); // rota para o formulario de criar categoria
+
+Route::post('/admin/modelo/validar',[ControllerCategoria::class,'validarModelo'])
+->name('validar.modelo'); // rota para o formulario de criar categoria
+
+
 
 
 

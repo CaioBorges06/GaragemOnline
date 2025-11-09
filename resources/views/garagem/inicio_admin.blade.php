@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.jpg" alt=""></a>
+                        <a href="{{ route('inicio') }}"><img src="img/logo.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -80,7 +80,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="{{route('carros')}}">Ver Carros</a></li>
-                                <li><a href="{{route('form.categoria')}}">Adicionar categoria</a></li>
+                                <li><a href="{{route('form.itens')}}">cadastrar itens</a></li>
                             </ul>
                         </nav>
                     <div class="header__nav__widget">

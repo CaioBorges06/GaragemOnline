@@ -139,6 +139,16 @@
 
                 <div class="row">
                     <div class="col-lg-6 mb-3">
+                        <label for="modelo"><strong>Modelo:</strong></label><br>
+                        <select name="modelo" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                            <option value="">Selecione o modelo</option>
+                            @foreach($modelo as $modelo)
+                                <option value="{{ $modelo->modelo }}">{{ $modelo->modelo }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
                         <label for="categoria"><strong>Categoria:</strong></label><br>
                         <select name="categoria" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
                             <option value="">Selecione a categoria</option>
@@ -149,18 +159,23 @@
                     </div>
 
                     <div class="col-lg-6 mb-3">
-                        <label for="modelo"><strong>Modelo:</strong></label>
-                        <input type="text" name="modelo" placeholder="Ex: Civic EXL" required>
+                        <label for="marca"><strong>Marca:</strong></label><br>
+                        <select name="marca" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                            <option value="">Selecione a marca</option>
+                            @foreach($marca as $marca)
+                                <option value="{{ $marca->marca }}">{{ $marca->marca }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="col-lg-6 mb-3">
-                        <label for="marca"><strong>Marca:</strong></label>
-                        <input type="text" name="marca" placeholder="Ex: Honda" required>
-                    </div>
-
-                    <div class="col-lg-6 mb-3">
-                        <label for="cor"><strong>Cor:</strong></label>
-                        <input type="text" name="cor" placeholder="Ex: Prata, Vermelho" required>
+                        <label for="cor"><strong>Cor:</strong></label><br>
+                        <select name="cor" class="form-control" style="width:100%; padding:8px; border-radius:5px; height: 50px;">
+                            <option value="">Selecione a cor</option>
+                            @foreach($cor as $cor)
+                                <option value="{{ $cor->cor }}">{{ $cor->cor }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="col-lg-4 mb-3">
@@ -192,7 +207,7 @@
                     </div>
                     
                     <div class="col-lg-12 mb-3">
-                        <label for="fotoUm"><strong>Foto 1 (Principal/Obrigatória):</strong></label>
+                        <label for="fotoUm"><strong>Foto 1:</strong></label>
                         <input type="url" name="fotoUm" id="fotoUm" placeholder="Cole o link DIRETO da imagem 1 (Ex: .jpg, .png)" required>
                     </div>
 
