@@ -131,8 +131,11 @@
                     <div class="car__sidebar">
                         <div class="car__search">
                             <h5>Pesquise</h5>
-                            <p>por nome ou categoria</p>
-                            <form action="#"> <!-- pesquisa -->
+                            <p>por nome, marca ou categoria</p>
+                            <form method="POST" action="{{route('carros.pesquisar')}}" > <!-- pesquisa -->
+
+                            @csrf
+
                                 <input type="text" placeholder=".  .  .">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
@@ -142,33 +145,8 @@
                 </div>
                 <div class="col-lg-9">
 
-                    <div class="row">
-                        @foreach($carros as $carro)
-                    <!-- Início -->
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{{ $carro->fotoUm }}" alt="">
-                                    <img src="{{ $carro->fotoDois }}" alt="">
-                                    <img src="{{ $carro->fotoTres }}" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">{{ $carro->ano }}</div>
-                                        <h5><a href="#">{{ $carro->modelo }}</a></h5>
-                                        <ul>
-                                            <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <a class="car-option" href="{{ route('carros.detalhes', $carro->id) }}" >Detalhes</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- Fim -->
-                     @endforeach
-                    </div>
+                @yield('pesquisa')
+
                 </div>
             </div>
         </div>
@@ -226,7 +204,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+                <input type="text" id="pequisa" placeholder="Search here.....">
             </form>
         </div>
     </div>

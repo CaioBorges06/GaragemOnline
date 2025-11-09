@@ -41,6 +41,8 @@ Route::get('/carros', [MostrarEditarCarro::class,'mostrar'])->name('carros'); //
 
 Route::get('/carros/detalhes/{id}', [MostrarEditarCarro::class,'detalhes'])->name('carros.detalhes'); // rota para editar carro
 
+Route::post('/carros/pesquisar', [MostrarEditarCarro::class,'pesquisar'])->name('carros.pesquisar'); // rota para pesquisar carro
+
 /* ------------------------------------------------------------------------------------------------  */
 
 /* -----------------------------------  ROTAS LOGIN  ---------------------------------------------  */

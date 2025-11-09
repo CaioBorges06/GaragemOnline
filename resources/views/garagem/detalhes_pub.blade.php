@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HVAC | Template</title>
+    <title>LOGIN | ADMIN</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -30,73 +30,23 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__widget">
-            <a href="#"><i class="fa fa-cart-plus"></i></a>
-            <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
-        </div>
-        <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <ul class="offcanvas__widget__add">
-            <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
-        </ul>
-        <div class="offcanvas__phone__num">
-            <i class="fa fa-phone"></i>
-            <span>(14) 991330681</span>
-        </div>
-        <div class="offcanvas__social">
-            <a href="https://www.instagram.com/caio.borgeess/"><i class="fa fa-instagram"></i></a>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <ul class="header__top__widget">
-                            <li></i>📍 Venda de carros em todo o estado de São Paulo </li>
-                            <li><i class="fa fa-envelope-o"></i> garagemonline_contato@gmail.com</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="header__top__right">
-                            <div class="header__top__phone">
-                                <i class="fa fa-phone"></i>
-                                <span>(+14) 991330681</span>
-                            </div>
-                            <div class="header__top__social">
-                                <a href="https://www.instagram.com/caio.borgeess/"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{route('inicio')}}"><img src="img/logo.jpg" alt=""></a>
+                        <a href="{{route('inicio')}}"></img src="/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <div class="header__nav">
+                    <div class="header__nav" style="text-align:left;">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="{{route('inicio')}}">Início</a></li>
+                            <li><a href="{{route('inicio')}}"  style="font-size: 40px;">Início</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__widget">
-                            <div class="header__nav__widget__btn" style="padding:5px;">
-                                <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
-                    </div>
+                            <div class="header__nav__widget__btn">
+                        </div>
                 </div>
             </div>
             <div class="canvas__open">
@@ -107,131 +57,102 @@
     <!-- Header Section End -->
 
     <!-- Breadcrumb End -->
-    <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+     
+    <div class="breadcrumb-option set-bg" data-setbg="/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Lista de Carros</h2>
-                        <div class="breadcrumb__links">
-
+                        <h2>Detalhes do Carro</h2>
+                        <span style="color: #de4646ff;">Área restrita para administradores</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <!-- Breadcrumb Begin -->
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-lg-4 col-md-4">
+        <div class="car__item">
+            <div class="car__item__pic__slider owl-carousel">
+            @if ($carro->fotoUm)
+                <img src="{{ $carro->fotoUm }}" alt="">
+            @endif
+            @if ($carro->fotoDois)
+                <img src="{{ $carro->fotoDois }}" alt="">
+            @endif
+            @if ($carro->fotoTres)
+                <img src="{{ $carro->fotoTres }}" alt="">
+            @endif
+        </div>
+            <div class="car__item__text">
+                <div class="car__item__text__inner">
+                    <div class="label-date">{{ $carro->ano }}</div>
+                    <h5><span style="color: #f44336;">modelo: </span> {{$carro->modelo}} </h5>
+                    <h5><span style="color: #f44336;">marca: </span> {{$carro->marca}} </h5>
+                    <h5><span style="color: #f44336;">cor: </span> {{$carro->cor}} </h5>
+                    <ul>
+                        <li><span style="color: #f44336;">valor: </span><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
+                    </ul>
+                    
+                    <h5 style="display: block; width: 100%;">
+    <span style="color: #f44336;">Descrição:</span>
+</h5>
+
+<div style="
+    display: block;
+    width: 95%;
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    border-left: 4px solid #db2d2e;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 400;
+    text-align: justify;
+    margin-top: 8px;
+    word-wrap: break-word;
+    white-space: pre-line;
+    box-sizing: border-box;
+">
+    {!! nl2br(e($carro->detalhes)) !!}
+</div>
+
+    <h5><span style="color: #f44336"> Quilometragem: </span><h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span style="color: #f44336"> km</span></h6></h5>
+
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Begin -->
+</div>
 
-    <!-- Car Section Begin -->
-    <section class="car spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="car__sidebar">
-                        <div class="car__search">
-                            <h5>Pesquise</h5>
-                            <p>por nome ou categoria</p>
-                            <form action="#"> <!-- pesquisa -->
-                                <input type="text" placeholder=".  .  .">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-9">
 
-                    <div class="row">
-                        @foreach($carros as $carro)
-                    <!-- Início -->
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{{ $carro->fotoUm }}" alt="">
-                                    <img src="{{ $carro->fotoDois }}" alt="">
-                                    <img src="{{ $carro->fotoTres }}" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">{{ $carro->ano }}</div>
-                                        <h5><a href="#">{{ $carro->modelo }}</a></h5>
-                                        <ul>
-                                            <li><span>R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <a class="car-option" href="{{ route('carros.detalhes', $carro->id) }}" >Detalhes</a>
-                                        <h6>{{ number_format((float) $carro->km, 0, '', '.') }}<span> km</span></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- Fim -->
-                     @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Car Section End -->
+    <!-- Contact Section Begin -->
+
+
+    <!-- Contact Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+    <footer class="footer set-bg" data-setbg="/img/footer-bg.jpg">
         <div class="container">
             <div class="footer__contact">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>Entre em contato!</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__contact__option">
-                            <div class="option__item"><i class="fa fa-phone"></i> (+14) 991330681 </div>
-                            <div class="option__item email"><i class="fa fa-envelope-o"></i> garagemonline_contato@gmail.com</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.jpg" alt=""></a>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3">
-                    <div class="footer__widget">
-                        
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    
-                </div>
-                <div class="col-lg-3 col-md-6">
-                </div>
+
             </div>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <div class="footer__copyright__text">
-                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-            </div>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>
     </footer>
     <!-- Footer Section End -->
-
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search End -->
 
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>

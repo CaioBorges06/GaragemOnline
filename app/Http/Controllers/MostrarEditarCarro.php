@@ -32,6 +32,38 @@ class MostrarEditarCarro extends Controller
         return view('garagem.detalhes_pub', compact('carro'));
     }
 
+    public function pesquisar(Request $request)
+{
+    $termo = $request->input('termo');
+
+    // Campo de pesquisa vazio
+    if (empty($termo)) {
+        $carros = Carros::all();
+        $mensagem = 'Digite algo para pesquisar.';
+        $estado = 'vazio';
+    } 
+    else {
+        // Campo preenchido - faz a busca
+        $carros = Carros::where('modelo', 'LIKE', '%' . $termo . '%')
+                        ->orWhere('marca', 'LIKE', '%' . $termo . '%')
+                        ->orWhere('categoria', 'LIKE', '%' . $termo . '%')
+                        ->get();
+
+        // Nenhum resultado encontrado
+        if ($carros->isEmpty()) {
+            $mensagem = "Nenhum carro encontrado para '{$termo}'.";
+            $estado = 'sem_resultado';
+        } 
+        else {
+            // Resultados encontrados
+            $mensagem = count($carros) . " resultado(s) encontrado(s) para '{$termo}'.";
+            $estado = 'encontrado';
+        }
+    }
+
+    return view('garagem.pesquisa', compact('carros', 'termo', 'mensagem', 'estado'));
+}
+
 /*
     public function editar($id){
 
