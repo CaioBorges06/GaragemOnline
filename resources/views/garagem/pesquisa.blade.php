@@ -30,7 +30,7 @@
                                             <a class="car-option" href="{{ route('carros.detalhes', $carro->id) }}" >Detalhes</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div><br><br><br><br>
                             </div>
                         <!-- Fim -->
                         @endforeach

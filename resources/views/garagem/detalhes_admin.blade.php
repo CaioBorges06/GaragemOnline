@@ -135,6 +135,7 @@
             <div class="car__item__text">
                 <div class="car__item__text__inner">
                     <div class="label-date">{{ $carro->ano }}</div>
+                    <h5><span style="color: #f44336;">categoria: </span> {{$carro->categoria}} </h5>
                     <h5><span style="color: #f44336;">modelo: </span> {{$carro->modelo}} </h5>
                     <h5><span style="color: #f44336;">marca: </span> {{$carro->marca}} </h5>
                     <h5><span style="color: #f44336;">cor: </span> {{$carro->cor}} </h5>
