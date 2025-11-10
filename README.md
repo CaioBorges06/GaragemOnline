@@ -1,3 +1,30 @@
+************************** PASSO A PASSO PARA IMPLEMENTAR O PROJETO **************************
+
+1 - Clonar o repositório ou baixar ele como zip e descompactar na pasta que for usar
+
+2 - Entrar na pasta do projeto pelo Terminal
+
+3 - Instalar o composer com o comando: composer install
+
+4 - Criar uma cópia do arquivo .env com o comando: cp .env.example .env
+
+5 - Gerar a chave da aplicação com o comando: php artisan key:generate
+
+6 - Veja se o bloco responsável pela conexão de dados está assim, se não substitua por isso:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+7 - Ligar o Apache e o MySQL no Xampp
+
+8 - Legitimar a criação do banco Laravel com o comando: php artisan migrate
+
+9 - Subir o projeto com o comando: php artisan serve
+
 Scripts das tabelas:
 
 Tabela 'categorias':
