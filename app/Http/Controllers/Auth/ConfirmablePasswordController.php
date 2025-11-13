@@ -14,9 +14,16 @@ class ConfirmablePasswordController extends Controller
     /**
      * Show the confirm password view.
      */
-    public function show(): View
+    public function show()  : View|RedirectResponse
     {
-        return view('auth.confirm-password');
+        if (Auth::check()) {
+
+        return view('garagem.alterar_senha');
+
+    }
+
+        return redirect()->route('auth.login');
+
     }
 
     /**
@@ -24,6 +31,7 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        
         if (! Auth::guard('web')->validate([
             'email' => $request->user()->email,
             'password' => $request->password,

@@ -52,3 +52,5 @@ FAÇA ESSE INSERT NA TABELA 'users'
 INSERT INTO users(id, name, email, email_verified_at, password, remember_token, created_at, updated_at) VALUES (1,'caio123','caio123@gmail.com',NULL,'$2y$12$4uBe/MgxxRi1n8W8iDoXxOcQB3iuBk9XLPaaQsnP1Lx0TyA1NXjc.',NULL,NOW(),NOW())
 
 Usuário: caio123 senha: caio123
+
+Para subir o site use o comando: php artisan serve

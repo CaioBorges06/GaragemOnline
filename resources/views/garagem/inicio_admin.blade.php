@@ -87,7 +87,9 @@
                         <div class="header__nav__widget__btn" style="padding:5px;">
                             </div>
                                 <a href="{{ route('form.carro') }}" class="primary-btn">Adicionar Carro</a>
+                                <a href="{{ route('password.confirm') }}" class="primary-btn" style="margin-left:10px;">Alterar senha</a>
                             </div>
+
                             
                         <form method="POST" action="{{ route('admin.logout') }}" style="display:inline;">
                         @csrf
