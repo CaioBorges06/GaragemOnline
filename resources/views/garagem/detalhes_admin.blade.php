@@ -10,7 +10,6 @@
     <title>ADMIN | Detalhes Carro</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
@@ -20,6 +19,97 @@
     <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <style>
+        /* ---------- Melhorias visuais ---------- */
+        .car__item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .car__item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .car__item__text {
+            padding: 25px;
+        }
+
+        .car__item__text h4 {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .car__item__pic__slider img {
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .site-btn {
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+
+        .site-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .breadcrumb__text h2 {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb__text span {
+            display: block;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Ajuste do botão voltar */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #f44336;
+            color: #fff !important;
+        }
+
+        /* Layout centralizado */
+        .car-container {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Descrição */
+        .descricao-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #db2d2e;
+            border-radius: 6px;
+            line-height: 1.7;
+            text-align: justify;
+            word-wrap: break-word;
+            white-space: pre-line;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Título da seção */
+        .section-title {
+            color: #f44336;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,6 +117,7 @@
         <div class="loader"></div>
     </div>
 
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="row">
@@ -54,9 +145,10 @@
             </div>
         </div>
     </header>
+
+    <!-- Toast de sucesso -->
     @if (session('success'))
-<div 
-    style="
+    <div id="successToast" style="
         position: fixed;
         top: 20px;
         right: 20px;
@@ -68,148 +160,108 @@
         z-index: 1050;
         opacity: 0;
         transform: translateY(-20px);
-        transition: opacity 0.5s, transform 0.5s;
-    "
-    id="successToast"
->
-    {{ session('success') }}
-</div>
+        transition: opacity 0.5s, transform 0.5s;">
+        {{ session('success') }}
+    </div>
 
-<script>
-    var toastEl = document.getElementById('successToast');
-    if (toastEl) {
-        // aparecer suavemente
-        setTimeout(() => {
-            toastEl.style.opacity = 1;
-            toastEl.style.transform = "translateY(0)";
-        }, 100);
+    <script>
+        const toastEl = document.getElementById('successToast');
+        if (toastEl) {
+            setTimeout(() => {
+                toastEl.style.opacity = 1;
+                toastEl.style.transform = "translateY(0)";
+            }, 100);
+            setTimeout(() => {
+                toastEl.style.opacity = 0;
+                toastEl.style.transform = "translateY(-20px)";
+            }, 5000);
+        }
+    </script>
+    @endif
 
-        // desaparecer após 5 segundos
-        setTimeout(() => {
-            toastEl.style.opacity = 0;
-            toastEl.style.transform = "translateY(-20px)";
-        }, 5000);
-    }
-</script>
-@endif
-
+    <!-- Breadcrumb -->
     <div class="breadcrumb-option set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Detalhes do Carro</h2>
-                        <span style="color: #de4646ff;">Área restrita para administradores</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="container text-center">
+            <div class="breadcrumb__text">
+                <h2>Detalhes do Carro</h2>
+                <span style="color: #de4646ff;">Área restrita para administradores</span>
             </div>
         </div>
-    </div><br><br><br>
+    </div>
 
- <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
-    <a href="{{route('carros')}}" class="site-btn" style="background-color: transparent; color: #f44336; border: 2px solid #f44336; padding: 10px 25px;">
-        <i class="fa fa-arrow-left"></i> Voltar para a lista de carros
-    </a>
-</div>
+    <!-- Voltar -->
+    <div class="container car-container">
+        <a href="{{ route('carros') }}" 
+   class="back-btn"
+   style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #fff;
+        color: #f44336;
+        border: 2px solid #f44336;
+        border-radius: 50px;
+        padding: 10px 22px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   "
+   onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff'; this.style.boxShadow='0 6px 16px rgba(244,67,54,0.4)';"
+   onmouseout="this.style.backgroundColor='#fff'; this.style.color='#f44336'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+   <i class="fa fa-arrow-left"></i> Voltar para a lista de carros
+</a>
 
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="col-lg-4 col-md-4">
-            <div class="car__item">
-                <div class="car__item__pic__slider owl-carousel">
+
+        <!-- Card do Carro -->
+        <div class="car__item">
+            <div class="car__item__pic__slider owl-carousel">
                 @if ($carro->fotoUm)
-                    <img src="{{ $carro->fotoUm }}" alt="">
+                <img src="{{ $carro->fotoUm }}" alt="">
                 @endif
                 @if ($carro->fotoDois)
-                    <img src="{{ $carro->fotoDois }}" alt="">
+                <img src="{{ $carro->fotoDois }}" alt="">
                 @endif
                 @if ($carro->fotoTres)
-                    <img src="{{ $carro->fotoTres }}" alt="">
+                <img src="{{ $carro->fotoTres }}" alt="">
                 @endif
+            </div>
+
+            <div class="car__item__text">
+                <div class="label-date">{{ $carro->ano }}</div>
+
+                <h4>{{ $carro->marca }} - {{ $carro->modelo }}</h4>
+
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <p><strong style="color: #f44336;">Categoria:</strong> {{ $carro->categoria }}</p>
+                        <p><strong style="color: #f44336;">Modelo:</strong> {{ $carro->modelo }}</p>
+                        <p><strong style="color: #f44336;">Marca:</strong> {{ $carro->marca }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p><strong style="color: #f44336;">Cor:</strong> {{ $carro->cor }}</p>
+                        <p><strong style="color: #f44336;">Quilometragem:</strong> {{ number_format($carro->km, 0, '', '.') }} <span style="color: #f44336;">km</span></p>
+                        <p><strong style="color: #f44336;">Valor:</strong> <span style="font-weight: 700;">R$ {{ number_format($carro->valor, 2, ',', '.') }}</span></p>
+                    </div>
                 </div>
-                
-                <div class="car__item__text">
-                    <div class="car__item__text__inner">
-                        <div class="label-date">{{ $carro->ano }}</div>
 
-                        <h4 style="margin-top: 10px; margin-bottom: 20px; color: #333;">
-                            {{ $carro->marca }} - {{ $carro->modelo }}
-                        </h4>
-                        
-                        <div class="row" style="margin-bottom: 15px;">
-                            <div class="col-6">
-                                <p style="margin-bottom: 8px;">
-                                    <strong style="color: #f44336;">Categoria:</strong> {{ $carro->categoria }}
-                                </p>
-                                <p style="margin-bottom: 8px;">
-                                    <strong style="color: #f44336;">Modelo:</strong> {{ $carro->modelo }}
-                                </p>
-                                <p style="margin-bottom: 8px;">
-                                    <strong style="color: #f44336;">Marca:</strong> {{ $carro->marca }}
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <p style="margin-bottom: 8px;">
-                                    <strong style="color: #f44336;">Cor:</strong> {{ $carro->cor }}
-                                </p>
-                                <p style="margin-bottom: 8px;">
-                                    <strong style="color: #f44336;">Quilometragem:</strong> <span style="font-weight: 500;">{{ number_format((float) $carro->km, 0, '', '.') }}</span> <span style="color: #f44336">km</span>
-                                </p>
-                                <p style="margin-bottom: 8px; font-size: 1.1em;">
-                                    <strong style="color: #f44336;">Valor:</strong> <span style="font-weight: 700;">R$ {{ number_format((float)$carro->valor, 2, ',', '.') }}</span>
-                                </p>
-                            </div>
-                        </div>
+                <h5 class="section-title mt-4">Descrição:</h5>
+                <div class="descricao-box">
+                    {!! nl2br(e($carro->detalhes)) !!}
+                </div>
 
-                        <h5 style="display: block; width: 100%; margin-top: 20px; margin-bottom: 8px;">
-                            <span style="color: #f44336;">Descrição:</span>
-                        </h5>
-
-                        <div style="
-                            display: block;
-                            width: 100%;
-                            background-color: #f9f9f9;
-                            padding: 15px;
-                            border-left: 4px solid #db2d2e;
-                            line-height: 1.6;
-                            color: #333;
-                            font-weight: 400;
-                            text-align: justify;
-                            margin-bottom: 25px;
-                            word-wrap: break-word;
-                            white-space: pre-line;
-                            box-sizing: border-box;
-                            border-radius: 4px;
-                        ">
-                            {!! nl2br(e($carro->detalhes)) !!}
-                        </div>
-                        
-                    </div>
-                    
-                    <div style="text-align:center;margin-top:20px; margin-bottom:20px;margin-left:20px;">
-                        <a class="site-btn" href="{{route('carros.editar', $carro->id)}}" style="background-color:blue; margin-right:90px;"> Editar </a> 
-                        <a class="site-btn" href="{{route('carros.deletar', $carro->id)}}" > Excluir </a>
-                    </div>
+                <div class="text-center mt-4">
+                    <a class="site-btn" href="{{ route('carros.editar', $carro->id) }}" style="background-color:blue; margin-right: 15px;">Editar</a>
+                    <a class="site-btn" href="{{ route('carros.deletar', $carro->id) }}">Excluir</a>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="footer set-bg" data-setbg="/img/footer-bg.jpg">
-        <div class="container">
-            <div class="footer__contact">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__contact__title">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                </div>
-            </div>
-        </div>
-    </footer>
+
+    <!-- Footer -->
+    <footer class="footer set-bg" data-setbg="/img/footer-bg.jpg"></footer>
+
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.nice-select.min.js"></script>
