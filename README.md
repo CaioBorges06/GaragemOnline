@@ -108,3 +108,70 @@ INSERT INTO users(id, name, email, email_verified_at, password, remember_token, 
 ## Login:
 
 <a href="https://ibb.co/Kpx762Nc"><img src="https://i.ibb.co/C3KvBbJp/ad.png" alt="ad" border="0" /></a>
+
+<a href="https://ibb.co/MxM2gxxP"><img src="https://i.ibb.co/21gnF11c/lo.png" alt="lo" border="0" /></a>
+
+<a href="https://ibb.co/RThwfSq7"><img src="https://i.ibb.co/zV8vp5zN/image.png" alt="image" border="0" /></a>
+
+## Cadastrar Itens:
+
+### Categoria
+
+<a href="https://ibb.co/MxwFWhzW"><img src="https://i.ibb.co/7dMs8z38/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/sp5czQN5"><img src="https://i.ibb.co/j9VqsGQV/image.png" alt="image" border="0" /></a>
+
+### Modelo
+
+<a href="https://ibb.co/S4H0pkby"><img src="https://i.ibb.co/21RPBzxh/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/sp5czQN5"><img src="https://i.ibb.co/j9VqsGQV/image.png" alt="image" border="0" /></a>
+
+### Cor
+
+<a href="https://ibb.co/Ngv3QLKj"><img src="https://i.ibb.co/j9N5BLDM/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/vvD6H1Ht"><img src="https://i.ibb.co/JFCwKnKh/image.png" alt="image" border="0" /></a>
+
+### Marca
+
+<a href="https://ibb.co/zTNZTkys"><img src="https://i.ibb.co/1tbTtSDZ/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/Hpb3kZvc"><img src="https://i.ibb.co/fGyLPJR3/image.png" alt="image" border="0" /></a>
+
+## Adicionar Carro:
+
+<a href="https://ibb.co/tM52J8yg"><img src="https://i.ibb.co/BVR6Cq8b/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/j9QM2HXn"><img src="https://i.ibb.co/qLcsfxQT/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/C5JnT8FS"><img src="https://i.ibb.co/Z6HhkXCb/image.png" alt="image" border="0" /></a>
+
+## Ver Carros:
+
+<a href="https://ibb.co/ZzdN06cX"><img src="https://i.ibb.co/YB2bx7fQ/image.png" alt="image" border="0" /></a>
+
+## Detalhes:
+
+<a href="https://ibb.co/zkVn5zv"><img src="https://i.ibb.co/R5TvSqw/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/JDqX3rg"><img src="https://i.ibb.co/QyksDYt/image.png" alt="image" border="0" /></a>
+
+## Editar:
+
+<a href="https://ibb.co/jkJdCCbC"><img src="https://i.ibb.co/5hKdQQGQ/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/SwqcSd7y"><img src="https://i.ibb.co/VYXx6Qp9/image.png" alt="image" border="0" /></a>
+
+## Excluir:
+
+<a href="https://ibb.co/jkJdCCbC"><img src="https://i.ibb.co/5hKdQQGQ/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/SwqcSd7y"><img src="https://i.ibb.co/VYXx6Qp9/image.png" alt="image" border="0" /></a>
+
+
+## Alterar senha:
+
+<a href="https://ibb.co/SwqcSd7y"><img src="https://i.ibb.co/nqDZF3SL/image.png" alt="image" border="0" /></a>
+
+<a href="https://ibb.co/SwqcSd7y"><img src="https://i.ibb.co/C3TKtx7Z/image.png" alt="image" border="0" /></a>
