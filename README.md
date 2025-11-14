@@ -107,5 +107,4 @@ INSERT INTO users(id, name, email, email_verified_at, password, remember_token, 
 
 ## Login:
 
-<p align="center"><a target="_blank"><img src="https://i.ibb.co/jPkGhyV9/ad.png" 
-width="400" alt="Página Home"></a></p>
+<a href="https://ibb.co/Kpx762Nc"><img src="https://i.ibb.co/C3KvBbJp/ad.png" alt="ad" border="0" /></a>
