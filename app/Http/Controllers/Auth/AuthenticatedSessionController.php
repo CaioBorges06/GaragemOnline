@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         // Se der certo, redireciona para a rota de início (ou dashboard)
-        return redirect()->route('inicio');
+        return redirect()->route('inicio')->with('success', 'Login realizado com sucesso!');
 
         } catch (ValidationException $e) {
         // Se der erro, volta para o login com a mensagem de erro
