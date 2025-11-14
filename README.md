@@ -1,3 +1,5 @@
+# Guia de implantação do projeto
+
 ## 1 - Clonar o repositório ou baixar ele como zip e descompactar na pasta que for usar
 
 ## 1.5 - Para clonar o repositório ustilize os seguintes passos:
@@ -100,3 +102,10 @@ INSERT INTO users(id, name, email, email_verified_at, password, remember_token, 
 
 ## Usuário: caio123 
 ## senha: caio123
+
+# Telas do Funcionamento 
+
+## Login:
+
+<p align="center"><a target="_blank"><img src="https://i.ibb.co/jPkGhyV9/ad.png" 
+width="400" alt="Página Home"></a></p>
